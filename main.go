@@ -12,7 +12,7 @@ func main() {
 		app, okApp := c.GetQuery("app")
 		api, okApi := c.GetQuery("api")
 		if okApp && okApi {
-			if apps[app] == api {
+			if Apps[app] == api {
 				data, err := c.GetRawData()
 				if err == nil {
 					writeInFile(app, data)
