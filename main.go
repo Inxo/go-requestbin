@@ -8,7 +8,7 @@ import (
 func main() {
 	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
-	r.POST("/", func(c *gin.Context) {
+	r.POST("/requestbin", func(c *gin.Context) {
 		app, okApp := c.GetQuery("app")
 		api, okApi := c.GetQuery("api")
 		if okApp && okApi {
