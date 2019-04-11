@@ -8,6 +8,11 @@ import (
 )
 
 func main() {
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	 println("Work directory:" + dir)
 	loadEnv()
 	r := gin.Default()
 	r.POST("/requestbin/", func(c *gin.Context) {
@@ -29,7 +34,8 @@ func main() {
 }
 
 func writeInFile(app string, data []byte) {
-	filename := "logs/" + app + ".log"
+	directory := os.Getenv("wd")
+	filename := directory + "/logs/" + app + ".log"
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)

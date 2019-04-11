@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          GoRequestBin
 # Required-Start:
@@ -11,7 +11,8 @@
 case $1 in
     start)
         echo "Starting requestbin web app."
-        /home/inxo/gorequestbin/app &
+	cd /home/inxo/gorequestbin/
+        sudo -u inxo /home/inxo/gorequestbin/./app >> /home/inxo/gorequestbin/log/requestbin.log &
         ;;
     stop)
         echo "Stopping requestbin web app."
